@@ -72,10 +72,22 @@ body {
   height: 40px;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
+  color: #d3bb89;
   background-color: transparent;
   border-left: none;
   border-right: none;
   border-top: none;
   border-color: #d3bb89;
   margin-bottom: 30px;
+}
+
+.form__button {
+  margin: 40px 0;
+  height: 45px;
+  color: #fef8eb;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #c19a49;
+  border: none;
 }
