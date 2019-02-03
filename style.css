@@ -11,6 +11,7 @@ body {
   display: flex;
 }
 
+/* Left Block */
 .left-main-block {
   width: 50%;
 }
@@ -23,7 +24,17 @@ body {
   max-width: 50vw;
 }
 
+/* Right block */
 .right-main-block {
   background-image: url("img/darknoise.png");
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  font-family: "Game of Thrones", fantasy;
+  color: #d3bb89;
 }
