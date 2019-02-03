@@ -13,16 +13,19 @@
     <section class="right-main-block">
       <h1 class="head">GAME OF THRONES</h1>
       <form action="" class="login-form">
-        <label for="email" class="login-form__label">Enter your email</label>
-        <input type="email" class="login-form__input" name="email" id="email" placeholder="">
+        <label for="email" class="form__label">Enter your email</label>
+        <input type="email" class="form__input" name="email" id="email" placeholder="arya@westeros.com">
 
-        <label for="pass" class="login-form__label"></label>
-        <input type="text" class="login-form__input" name="pass" id="pass">
+        <label for="pass" class="form__label label-with-hint">Choose secure password</label>
+        <p class="form__hint">Must be at least 8 characters</p>
+        <input type="text" class="form__input" name="pass" id="pass" placeholder="password">
 
-        <label for="remember-me" class="login-form__label"></label>
-        <input type="checkbox" class="login-form__input" name="remember-me" id="remember-me">
+        <div class="form__checkbox-block">
+          <input type="checkbox" class="form__checkbox" name="remember-me" id="remember-me">
+          <label for="remember-me" class="form__label">Remember me</label>
+        </div>
 
-        <input type="submit" class="login-form__input" value="Sign Up">
+        <input type="submit" class="form__button" value="Sign Up">
       </form>
     </section>
   </div>
