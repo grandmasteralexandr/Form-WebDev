@@ -3,3 +3,38 @@
   src: url("fonts/Game-of-Thrones.ttf");
 }
 
+body {
+  margin: 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.left-main-block {
+  width: 50%;
+}
+
+.left-main-block__image {
+  /*display: flex;*/
+  /*align-items: stretch;*/
+  /*height: auto;*/
+  /*width: 100%;*/
+}
+
+.left-main-block__img {
+  /*height: auto;*/
+  /*width: 100%;*/
+  /*display: flex;*/
+  height: auto;
+  width: auto;
+  min-height: 100vh;
+  max-width: 50vw;
+}
+
+.right-main-block {
+  background-image: url("img/darknoise.png");
+  width: 50%;
+}
