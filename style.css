@@ -12,6 +12,9 @@
   font-family: "EB Garamond";
   src: url("fonts/EBGaramond-Regular.ttf");
 }
+* {
+  outline: none;
+}
 
 body {
   margin: 0;
@@ -38,7 +41,8 @@ body {
 
 /* Right block */
 .right-main-block,
-.login-form {
+.login-form,
+.info-form {
   display: flex;
   flex-direction: column;
 }
@@ -81,6 +85,15 @@ body {
   margin-bottom: 30px;
 }
 
+.form__select,
+.form__option {
+  color: #fef8eb;
+}
+
+.form__option {
+  background-color: #202020;
+}
+
 .form__button {
   margin: 40px 0;
   height: 45px;
@@ -90,4 +103,16 @@ body {
   font-weight: bold;
   background-color: #c19a49;
   border: none;
+}
+
+.info-message {
+  font-family: "Open Sans", sans-serif;
+  color: #fef8eb;
+  font-size: 0.9rem;
+  padding-left: 20px;
+  border-left: solid #d3bb89 2px;
+}
+
+.preferences {
+  height: 70px;
 }
