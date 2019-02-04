@@ -83,6 +83,35 @@ body {
   margin-bottom: 30px;
 }
 
+.form__checkbox {
+  display: none;
+}
+
+.checkbox-label {
+  padding-left: 25px;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-label:before {
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  content: '';
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #d3bb89;
+  color: #202020;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.form__checkbox:checked + .checkbox-label:before {
+  /* Unicode check mark */
+  content: '\2713';
+}
+
 .form__select,
 .form__option {
   color: #fef8eb;
