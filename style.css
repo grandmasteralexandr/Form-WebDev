@@ -12,6 +12,7 @@
   font-family: "EB Garamond";
   src: url("fonts/EBGaramond-Regular.ttf");
 }
+
 * {
   outline: none;
 }
@@ -34,7 +35,10 @@ body {
 }
 
 .left-main-block__img {
+  min-height: 100vh;
   max-height: 100vh;
+  min-width: 50vw;
+  max-width: 50vw;
 }
 
 /* Right block */
@@ -81,6 +85,7 @@ body {
   border-top: none;
   border-color: #d3bb89;
   margin-bottom: 30px;
+  resize: none;
 }
 
 .form__checkbox {
@@ -105,6 +110,7 @@ body {
   position: absolute;
   top: 5px;
   left: 0;
+  text-align: center;
 }
 
 .form__checkbox:checked + .checkbox-label:before {
@@ -130,6 +136,7 @@ body {
   font-weight: bold;
   background-color: #c19a49;
   border: none;
+  cursor: pointer;
 }
 
 .info-message {
