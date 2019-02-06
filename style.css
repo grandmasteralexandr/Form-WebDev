@@ -13,10 +13,6 @@
   src: url("fonts/EBGaramond-Regular.ttf");
 }
 
-* {
-  outline: none;
-}
-
 body {
   margin: 0;
   font-size: 1.4em;
@@ -86,6 +82,7 @@ body {
   border-color: #d3bb89;
   margin-bottom: 30px;
   resize: none;
+  outline: none;
 }
 
 .form__checkbox {
