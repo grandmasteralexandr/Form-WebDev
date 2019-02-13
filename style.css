@@ -31,10 +31,7 @@ body {
 }
 
 .left-main-block__img {
-  min-height: 100vh;
   max-height: 100vh;
-  min-width: 50vw;
-  max-width: 50vw;
 }
 
 /* Right block */
