@@ -144,3 +144,7 @@ body {
 .preferences {
   height: 70px;
 }
+
+.info-form {
+  display: none;
+}
