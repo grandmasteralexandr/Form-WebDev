@@ -148,3 +148,7 @@ body {
 .hidden {
   display: none;
 }
+
+.input-error {
+  background-color: firebrick;
+}

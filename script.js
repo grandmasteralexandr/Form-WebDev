@@ -80,7 +80,7 @@ function changeFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName) {
             input.isFirstFocusOut = true;
-            [input.validateFunction](input.element, input.pattern);
+            window[input.validateFunction](input.element, input.pattern);
         }
     }
 }
@@ -88,13 +88,13 @@ function changeFocusState(inputName) {
 function checkFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName && input.isFirstFocusOut) {
-            [input.validateFunction](input.element, input.pattern);
+            window[input.validateFunction](input.element, input.pattern);
         }
     }
 }
 
 function checkText(element, pattern) {
-    if (element.match(pattern)) {
+    if (element.value.match(pattern)) {
         element.classList.remove("input-error");
         return true;
     } else {
@@ -104,7 +104,7 @@ function checkText(element, pattern) {
 }
 
 function checkSelect(element, selectList) {
-    if (selectList.contains(element.value)) {
+    if (selectList.includes(element.value)) {
         element.classList.remove("input-error");
         return true;
     } else {
