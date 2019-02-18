@@ -30,7 +30,7 @@ const GREAT_HOUSES_LIST = [
     "Martell",
 ];
 
-const EMAIL_PATTERN = /^[-+A-Za-z0-9.]+@([A-Za-z0-9][-A-Za-z0-9.]+[A-Za-z0-9])\.[A-Za-z]{2,4}$/;
+const EMAIL_PATTERN = /^([A-Za-z0-9][-+A-Za-z0-9.]*[A-Za-z0-9])@([A-Za-z0-9][-A-Za-z0-9.]*[A-Za-z0-9])\.[A-Za-z]{2,4}$/;
 const PASS_PATTERN = /.{8,}/;
 const USERNAME_PATTERN = /[-_A-Za-z0-9]{3,}/;
 
