@@ -95,8 +95,10 @@ function checkText(element, pattern) {
 function checkSelect(element, selectList) {
     if (selectList.contains(element.value)) {
         element.classList.remove("input-error");
+        return true;
     } else {
         element.classList.add("input-error");
+        return false;
     }
 }
 
