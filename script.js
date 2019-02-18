@@ -4,19 +4,22 @@ const EMAIL = document.getElementById("email");
 const PASS = document.getElementById("pass");
 const USERNAME = document.getElementById("username");
 const GREAT_HOUSE = document.getElementById("great-house");
-const REFERENCES = document.getElementById("preferences");
+const PREFERENCES = document.getElementById("preferences");
 const LOGIN_BUTTON = document.getElementById("login-form-button");
 const INFO_BUTTON = document.getElementById("info-form-button");
 
-EMAIL.addEventListener('blur', () => changeFocusState("email"));
-EMAIL.addEventListener('input', () => checkFocusState("email"));
-PASS.addEventListener('blur', () => changeFocusState("pass"));
-PASS.addEventListener('input', () => checkFocusState("pass"));
-USERNAME.addEventListener('blur', () => changeFocusState("username"));
-USERNAME.addEventListener('input', () => checkFocusState("username"));
-GREAT_HOUSE.addEventListener('blur', () => changeFocusState("greatHouse"));
-GREAT_HOUSE.addEventListener('input', () => checkFocusState("greatHouse"));
+EMAIL.addEventListener("blur", () => changeFocusState("email"));
+EMAIL.addEventListener("input", () => checkFocusState("email"));
+PASS.addEventListener("blur", () => changeFocusState("pass"));
+PASS.addEventListener("input", () => checkFocusState("pass"));
+USERNAME.addEventListener("blur", () => changeFocusState("username"));
+USERNAME.addEventListener("input", () => checkFocusState("username"));
+GREAT_HOUSE.addEventListener("blur", () => changeFocusState("greatHouse"));
+GREAT_HOUSE.addEventListener("input", () => checkFocusState("greatHouse"));
+PREFERENCES.addEventListener("blur", () => changeFocusState("preferences"));
+PREFERENCES.addEventListener("input", () => checkFocusState("preferences"));
 LOGIN_BUTTON.addEventListener("click", login);
+INFO_BUTTON.addEventListener("click", saveInfo);
 
 const GREAT_HOUSES_LIST = [
     "Targaryen",
@@ -33,6 +36,7 @@ const GREAT_HOUSES_LIST = [
 const EMAIL_PATTERN = /^([A-Za-z0-9][-+A-Za-z0-9.]*[A-Za-z0-9])@([A-Za-z0-9][-A-Za-z0-9.]*[A-Za-z0-9])\.[A-Za-z]{2,4}$/;
 const PASS_PATTERN = /.{8,}/;
 const USERNAME_PATTERN = /[-_A-Za-z0-9]{3,}/;
+const PREFERENCES_PATTERN = /.+/;
 
 const INPUT_LIST = [
     {
@@ -62,6 +66,13 @@ const INPUT_LIST = [
         validateFunction: "checkSelect",
         element: GREAT_HOUSE,
         pattern: GREAT_HOUSES_LIST,
+    },
+    {
+        name: "preferences",
+        isFirstFocusOut: false,
+        validateFunction: "checkText",
+        element: PREFERENCES,
+        pattern: PREFERENCES_PATTERN,
     },
 ];
 
@@ -107,4 +118,10 @@ function login() {
         LOGIN_FORM.classList.add("hidden");
         INFO_FORM.classList.remove("hidden");
     }
+}
+
+function saveInfo() {
+    checkText(USERNAME, USERNAME_PATTERN);
+    checkSelect(GREAT_HOUSE, GREAT_HOUSES_LIST);
+    checkText(PREFERENCES, PREFERENCES_PATTERN);
 }
