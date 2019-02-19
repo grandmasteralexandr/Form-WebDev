@@ -1,3 +1,4 @@
+/* Selectors */
 const LOGIN_FORM = document.querySelector(".login-form");
 const INFO_FORM = document.querySelector(".info-form");
 const EMAIL = document.getElementById("email");
@@ -8,6 +9,7 @@ const PREFERENCES = document.getElementById("preferences");
 const LOGIN_BUTTON = document.getElementById("login-form-button");
 const INFO_BUTTON = document.getElementById("info-form-button");
 
+/* Event listeners */
 EMAIL.addEventListener("blur", () => changeFocusState("email"));
 EMAIL.addEventListener("input", () => checkFocusState("email"));
 PASS.addEventListener("blur", () => changeFocusState("pass"));
@@ -33,11 +35,13 @@ const GREAT_HOUSES_LIST = [
     "Martell",
 ];
 
+/* Pattern of search */
 const EMAIL_PATTERN = /^([A-Za-z0-9][-+A-Za-z0-9.]*[A-Za-z0-9])@([A-Za-z0-9][-A-Za-z0-9.]*[A-Za-z0-9])\.[A-Za-z]{2,4}$/;
 const PASS_PATTERN = /.{8,}/;
 const USERNAME_PATTERN = /[-_A-Za-z0-9]{3,}/;
 const PREFERENCES_PATTERN = /.+/;
 
+/* List of all inputs and they properties */
 const INPUT_LIST = [
     {
         name: "email",
@@ -76,6 +80,11 @@ const INPUT_LIST = [
     },
 ];
 
+/**
+ * Change focusOut state of some input and call a validate function
+ *
+ * @param inputName Name of input
+ */
 function changeFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName) {
@@ -85,6 +94,12 @@ function changeFocusState(inputName) {
     }
 }
 
+/**
+ * Check focusOut state of some input and call a validate function
+ * if focusOut is true, otherwise - nothing to do
+ *
+ * @param inputName Name of input
+ */
 function checkFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName && input.isFirstFocusOut) {
@@ -93,6 +108,13 @@ function checkFocusState(inputName) {
     }
 }
 
+/**
+ * Checks if some text input matches the specified pattern
+ *
+ * @param element Input element
+ * @param pattern The pattern for which the verification is carried out
+ * @returns {boolean} True if element value match the pattern
+ */
 function checkText(element, pattern) {
     if (element.value.match(pattern)) {
         element.classList.remove("input-error");
@@ -103,8 +125,15 @@ function checkText(element, pattern) {
     }
 }
 
-function checkSelect(element, selectList) {
-    if (selectList.includes(element.value)) {
+/**
+ * Checks if some select input matches the specified options list
+ *
+ * @param element Select element
+ * @param optionsList List of allowed options of select
+ * @returns {boolean} True if select value match one of options list
+ */
+function checkSelect(element, optionsList) {
+    if (optionsList.includes(element.value)) {
         element.classList.remove("input-error");
         return true;
     } else {
@@ -113,6 +142,10 @@ function checkSelect(element, selectList) {
     }
 }
 
+/**
+ * Check login fields
+ * hide login form and show info form if fields are valid
+ */
 function login() {
     if (checkText(EMAIL, EMAIL_PATTERN) && checkText(PASS, PASS_PATTERN)) {
         LOGIN_FORM.classList.add("hidden");
@@ -120,6 +153,9 @@ function login() {
     }
 }
 
+/**
+ * Check info fields
+ */
 function saveInfo() {
     checkText(USERNAME, USERNAME_PATTERN);
     checkSelect(GREAT_HOUSE, GREAT_HOUSES_LIST);
