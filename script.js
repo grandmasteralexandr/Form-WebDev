@@ -46,35 +46,35 @@ const INPUT_LIST = [
     {
         name: "email",
         isFirstFocusOut: false,
-        validateFunction: "checkText",
+        validateFunction: checkText,
         element: EMAIL,
         pattern: EMAIL_PATTERN,
     },
     {
         name: "pass",
         isFirstFocusOut: false,
-        validateFunction: "checkText",
+        validateFunction: checkText,
         element: PASS,
         pattern: PASS_PATTERN,
     },
     {
         name: "username",
         isFirstFocusOut: false,
-        validateFunction: "checkText",
+        validateFunction: checkText,
         element: USERNAME,
         pattern: USERNAME_PATTERN,
     },
     {
         name: "greatHouse",
         isFirstFocusOut: false,
-        validateFunction: "checkSelect",
+        validateFunction: checkSelect,
         element: GREAT_HOUSE,
         pattern: GREAT_HOUSES_LIST,
     },
     {
         name: "preferences",
         isFirstFocusOut: false,
-        validateFunction: "checkText",
+        validateFunction: checkText,
         element: PREFERENCES,
         pattern: PREFERENCES_PATTERN,
     },
@@ -89,7 +89,7 @@ function changeFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName) {
             input.isFirstFocusOut = true;
-            window[input.validateFunction](input.element, input.pattern);
+            input.validateFunction(input.element, input.pattern);
         }
     }
 }
@@ -103,7 +103,7 @@ function changeFocusState(inputName) {
 function checkFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName && input.isFirstFocusOut) {
-            window[input.validateFunction](input.element, input.pattern);
+            input.validateFunction(input.element, input.pattern);
         }
     }
 }
