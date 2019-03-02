@@ -14,6 +14,7 @@
 }
 
 body {
+  background-image: url("../img/darknoise.png");
   margin: 0;
   font-size: 1.4em;
   color: #d3bb89;
@@ -30,9 +31,17 @@ body {
   justify-content: center;
 }
 
-.left-main-block__img {
+.left-main-block img {
   min-height: 100vh;
   max-height: 100vh;
+  /*flex-shrink: 2;*/
+  /*max-width: 100%;*/
+  /*max-width: 50vw;*/
+}
+
+.slider__item {
+  display: flex;
+  justify-content: center;
 }
 
 /* Right block */
@@ -44,7 +53,6 @@ body {
 }
 
 .right-main-block {
-  background-image: url("../img/darknoise.png");
   width: 50%;
   justify-content: center;
   align-items: center;
