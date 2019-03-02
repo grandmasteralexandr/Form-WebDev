@@ -27,16 +27,12 @@ body {
 /* Left Block */
 .left-main-block {
   width: 50%;
-  display: flex;
-  justify-content: center;
 }
 
 .left-main-block img {
   min-height: 100vh;
   max-height: 100vh;
-  /*flex-shrink: 2;*/
-  /*max-width: 100%;*/
-  /*max-width: 50vw;*/
+  object-fit: cover;
 }
 
 .slider__item {

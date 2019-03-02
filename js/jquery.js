@@ -1,14 +1,15 @@
 $(document).ready(() => {
-    // $(".slider").slick();
+    /* Add Slider */
     $(".slider-container").ikSlider(
         {
             responsive: false,
             pauseOnHover: false,
-            delay: 3000,
-            touch   : false,
+            delay: 5000,
+            speed: 1000,
+            touch: false,
             controls: false,
-            arrows  : false,
-            infinite: true,
+            arrows: false,
+            infinite: false,
         }
     );
 });
