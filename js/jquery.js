@@ -1,4 +1,16 @@
 $(document).ready(() => {
+    const GREAT_HOUSES_LIST = [
+        "Stark",
+        "Arryn",
+        "Baratheon",
+        "Greyjoy",
+        "Lannister",
+        "Martell",
+        "Targaryen",
+        "Tully",
+        "Tyrell",
+    ];
+
     /* Add Slider */
     const slider = $(".slider-container");
     slider.ikSlider(
@@ -10,7 +22,6 @@ $(document).ready(() => {
             touch: false,
             controls: false,
             arrows: false,
-            infinite: false,
         }
     );
 
@@ -21,5 +32,26 @@ $(document).ready(() => {
         minimumResultsForSearch: 'Infinity',
         containerCssClass: "form__select",
         dropdownCssClass: "form__option"
+    });
+
+    let firstChange = false;
+
+    dropDown.change(() => {
+        if (!firstChange) {
+            /* Need to destroy in first change because need set autoPlay: false */
+            slider.ikSlider("destroy");
+            slider.ikSlider({
+                autoPlay: false,
+                responsive: false,
+                pauseOnHover: false,
+                touch: false,
+                controls: false,
+                arrows: false,
+            });
+            firstChange = true;
+        }
+
+        /* Show specified slide */
+        slider.ikSlider(GREAT_HOUSES_LIST.indexOf(dropDown.val()));
     });
 });

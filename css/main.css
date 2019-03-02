@@ -35,6 +35,10 @@ body {
   object-fit: cover;
 }
 
+.slider-container{
+  background-image: url("../img/darknoise.png");
+}
+
 .slider__item {
   display: flex;
   justify-content: center;
