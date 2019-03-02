@@ -31,6 +31,7 @@ body {
 }
 
 .left-main-block__img {
+  min-height: 100vh;
   max-height: 100vh;
 }
 
