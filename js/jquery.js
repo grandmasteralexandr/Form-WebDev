@@ -17,7 +17,7 @@ $(document).ready(() => {
         {
             responsive: false,
             pauseOnHover: false,
-            delay: 5000,
+            delay: 3500,
             speed: 1000,
             touch: false,
             controls: false,
