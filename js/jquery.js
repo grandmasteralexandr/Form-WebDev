@@ -1,6 +1,7 @@
 $(document).ready(() => {
     /* Add Slider */
-    $(".slider-container").ikSlider(
+    const slider = $(".slider-container");
+    slider.ikSlider(
         {
             responsive: false,
             pauseOnHover: false,
