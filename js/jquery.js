@@ -48,10 +48,21 @@ $(document).ready(() => {
                 controls: false,
                 arrows: false,
             });
+
             firstChange = true;
+            $(".select2-container").removeClass("input-error");
         }
 
         /* Show specified slide */
         slider.ikSlider(GREAT_HOUSES_LIST.indexOf(dropDown.val()));
+    });
+
+    /* Add dropdown validation */
+    const saveButton = $("#info-form-button");
+
+    saveButton.click(() => {
+        if (!firstChange) {
+            $(".select2-container").addClass("input-error");
+        }
     });
 });

@@ -177,5 +177,5 @@ body {
 }
 
 .input-error {
-  background-color: #6d1313;
+  background-color: #6d1313 !important;
 }
