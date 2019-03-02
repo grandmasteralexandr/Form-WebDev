@@ -18,5 +18,8 @@ $(document).ready(() => {
     const dropDown = $("#great-house");
     dropDown.select2({
         placeholder: 'Select House',
+        minimumResultsForSearch: 'Infinity',
+        containerCssClass: "form__select",
+        dropdownCssClass: "form__option"
     });
 });
