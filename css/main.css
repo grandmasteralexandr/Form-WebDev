@@ -119,11 +119,11 @@ body {
 
 .form__select,
 .form__option {
-  color: #fef8eb;
+  /*color: #fef8eb;*/
 }
 
 .form__option {
-  background-color: #202020;
+  /*background-color: #202020;*/
 }
 
 .form__button {

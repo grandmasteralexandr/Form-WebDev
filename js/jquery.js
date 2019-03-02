@@ -13,4 +13,10 @@ $(document).ready(() => {
             infinite: false,
         }
     );
+
+    /* Add dropdown */
+    const dropDown = $("#great-house");
+    dropDown.select2({
+        placeholder: 'Select House',
+    });
 });
