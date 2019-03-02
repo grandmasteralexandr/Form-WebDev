@@ -1,16 +1,16 @@
 @font-face {
   font-family: Game of Thrones;
-  src: url("fonts/Game-of-Thrones.ttf");
+  src: url("../fonts/Game-of-Thrones.ttf");
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("fonts/OpenSans-Regular.ttf");
+  src: url("../fonts/OpenSans-Regular.ttf");
 }
 
 @font-face {
   font-family: "EB Garamond";
-  src: url("fonts/EBGaramond-Regular.ttf");
+  src: url("../fonts/EBGaramond-Regular.ttf");
 }
 
 body {
@@ -44,7 +44,7 @@ body {
 }
 
 .right-main-block {
-  background-image: url("img/darknoise.png");
+  background-image: url("../img/darknoise.png");
   width: 50%;
   justify-content: center;
   align-items: center;
