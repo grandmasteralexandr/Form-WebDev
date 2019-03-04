@@ -45,35 +45,35 @@ const PREFERENCES_PATTERN = /.+/;
 const INPUT_LIST = [
     {
         name: "email",
-        isFirstFocusOut: false,
+        isFirstFocusOutDone: false,
         validateFunction: checkText,
         element: EMAIL,
         pattern: EMAIL_PATTERN,
     },
     {
         name: "pass",
-        isFirstFocusOut: false,
+        isFirstFocusOutDone: false,
         validateFunction: checkText,
         element: PASS,
         pattern: PASS_PATTERN,
     },
     {
         name: "username",
-        isFirstFocusOut: false,
+        isFirstFocusOutDone: false,
         validateFunction: checkText,
         element: USERNAME,
         pattern: USERNAME_PATTERN,
     },
     {
         name: "greatHouse",
-        isFirstFocusOut: false,
+        isFirstFocusOutDone: false,
         validateFunction: checkSelect,
         element: GREAT_HOUSE,
         pattern: GREAT_HOUSES_LIST,
     },
     {
         name: "preferences",
-        isFirstFocusOut: false,
+        isFirstFocusOutDone: false,
         validateFunction: checkText,
         element: PREFERENCES,
         pattern: PREFERENCES_PATTERN,
@@ -88,7 +88,7 @@ const INPUT_LIST = [
 function changeFocusState(inputName) {
     for (let input of INPUT_LIST) {
         if (input.name === inputName) {
-            input.isFirstFocusOut = true;
+            input.isFirstFocusOutDone = true;
             input.validateFunction(input.element, input.pattern);
         }
     }
@@ -102,7 +102,7 @@ function changeFocusState(inputName) {
  */
 function checkFocusState(inputName) {
     for (let input of INPUT_LIST) {
-        if (input.name === inputName && input.isFirstFocusOut) {
+        if (input.name === inputName && input.isFirstFocusOutDone) {
             input.validateFunction(input.element, input.pattern);
         }
     }
