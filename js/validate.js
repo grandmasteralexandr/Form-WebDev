@@ -1,27 +1,27 @@
 /* Selectors */
-const LOGIN_FORM = document.querySelector(".login-form");
-const INFO_FORM = document.querySelector(".info-form");
-const EMAIL = document.getElementById("email");
-const PASS = document.getElementById("pass");
-const USERNAME = document.getElementById("username");
-const GREAT_HOUSE = document.getElementById("great-house");
-const PREFERENCES = document.getElementById("preferences");
-const LOGIN_BUTTON = document.getElementById("login-form-button");
-const INFO_BUTTON = document.getElementById("info-form-button");
+const loginForm = document.querySelector(".login-form");
+const infoForm = document.querySelector(".info-form");
+const email = document.getElementById("email");
+const pass = document.getElementById("pass");
+const username = document.getElementById("username");
+const greatHouse = document.getElementById("great-house");
+const preferences = document.getElementById("preferences");
+const loginButton = document.getElementById("login-form-button");
+const infoButton = document.getElementById("info-form-button");
 
 /* Event listeners */
-EMAIL.addEventListener("blur", () => changeFocusState("email"));
-EMAIL.addEventListener("input", () => checkFocusState("email"));
-PASS.addEventListener("blur", () => changeFocusState("pass"));
-PASS.addEventListener("input", () => checkFocusState("pass"));
-USERNAME.addEventListener("blur", () => changeFocusState("username"));
-USERNAME.addEventListener("input", () => checkFocusState("username"));
-GREAT_HOUSE.addEventListener("blur", () => changeFocusState("greatHouse"));
-GREAT_HOUSE.addEventListener("input", () => checkFocusState("greatHouse"));
-PREFERENCES.addEventListener("blur", () => changeFocusState("preferences"));
-PREFERENCES.addEventListener("input", () => checkFocusState("preferences"));
-LOGIN_BUTTON.addEventListener("click", login);
-INFO_BUTTON.addEventListener("click", saveInfo);
+email.addEventListener("blur", () => changeFocusState("email"));
+email.addEventListener("input", () => checkFocusState("email"));
+pass.addEventListener("blur", () => changeFocusState("pass"));
+pass.addEventListener("input", () => checkFocusState("pass"));
+username.addEventListener("blur", () => changeFocusState("username"));
+username.addEventListener("input", () => checkFocusState("username"));
+greatHouse.addEventListener("blur", () => changeFocusState("greatHouse"));
+greatHouse.addEventListener("input", () => checkFocusState("greatHouse"));
+preferences.addEventListener("blur", () => changeFocusState("preferences"));
+preferences.addEventListener("input", () => checkFocusState("preferences"));
+loginButton.addEventListener("click", login);
+infoButton.addEventListener("click", saveInfo);
 
 const GREAT_HOUSES_LIST = [
     "Targaryen",
@@ -42,40 +42,40 @@ const USERNAME_PATTERN = /[-_A-Za-z0-9]{3,}/;
 const PREFERENCES_PATTERN = /.+/;
 
 /* List of all inputs and they properties */
-const INPUT_LIST = [
+const inputList = [
     {
         name: "email",
         isFirstFocusOutDone: false,
         validateFunction: checkText,
-        element: EMAIL,
+        element: email,
         pattern: EMAIL_PATTERN,
     },
     {
         name: "pass",
         isFirstFocusOutDone: false,
         validateFunction: checkText,
-        element: PASS,
+        element: pass,
         pattern: PASS_PATTERN,
     },
     {
         name: "username",
         isFirstFocusOutDone: false,
         validateFunction: checkText,
-        element: USERNAME,
+        element: username,
         pattern: USERNAME_PATTERN,
     },
     {
         name: "greatHouse",
         isFirstFocusOutDone: false,
         validateFunction: checkSelect,
-        element: GREAT_HOUSE,
+        element: greatHouse,
         pattern: GREAT_HOUSES_LIST,
     },
     {
         name: "preferences",
         isFirstFocusOutDone: false,
         validateFunction: checkText,
-        element: PREFERENCES,
+        element: preferences,
         pattern: PREFERENCES_PATTERN,
     },
 ];
@@ -86,7 +86,7 @@ const INPUT_LIST = [
  * @param inputName Name of input
  */
 function changeFocusState(inputName) {
-    for (let input of INPUT_LIST) {
+    for (let input of inputList) {
         if (input.name === inputName) {
             input.isFirstFocusOutDone = true;
             input.validateFunction(input.element, input.pattern);
@@ -101,7 +101,7 @@ function changeFocusState(inputName) {
  * @param inputName Name of input
  */
 function checkFocusState(inputName) {
-    for (let input of INPUT_LIST) {
+    for (let input of inputList) {
         if (input.name === inputName && input.isFirstFocusOutDone) {
             input.validateFunction(input.element, input.pattern);
         }
@@ -147,9 +147,9 @@ function checkSelect(element, optionsList) {
  * hide login form and show info form if fields are valid
  */
 function login() {
-    if (checkText(EMAIL, EMAIL_PATTERN) && checkText(PASS, PASS_PATTERN)) {
-        LOGIN_FORM.classList.add("hidden");
-        INFO_FORM.classList.remove("hidden");
+    if (checkText(email, EMAIL_PATTERN) && checkText(pass, PASS_PATTERN)) {
+        loginForm.classList.add("hidden");
+        infoForm.classList.remove("hidden");
     }
 }
 
@@ -157,7 +157,7 @@ function login() {
  * Check info fields
  */
 function saveInfo() {
-    checkText(USERNAME, USERNAME_PATTERN);
-    checkSelect(GREAT_HOUSE, GREAT_HOUSES_LIST);
-    checkText(PREFERENCES, PREFERENCES_PATTERN);
+    checkText(username, USERNAME_PATTERN);
+    checkSelect(greatHouse, GREAT_HOUSES_LIST);
+    checkText(preferences, PREFERENCES_PATTERN);
 }
