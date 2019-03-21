@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <title>Form shpp Web Dev</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="left-main-block">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slider__item">
+              <img src="img/Stark.jpg" alt="Winter is comming...">
+            </div>
+            <div class="slider__item">
+              <img src="img/Arryn.jpg" alt="Arryn">
+            </div>
+            <div class="slider__item">
+              <img src="img/Baratheon.jpg" alt="Baratheon">
+            </div>
+            <div class="slider__item">
+              <img src="img/Greyjoy.jpg" alt="Greyjoy">
+            </div>
+            <div class="slider__item">
+              <img src="img/Lannister.jpg" alt="Lannister">
+            </div>
+            <div class="slider__item">
+              <img src="img/Martell.jpg" alt="Martell">
+            </div>
+            <div class="slider__item">
+              <img src="img/Targaryen.jpg" alt="Targaryen">
+            </div>
+            <div class="slider__item">
+              <img src="img/Tully.jpg" alt="Tully">
+            </div>
+            <div class="slider__item">
+              <img src="img/Tyrell.jpg" alt="Tyrell">
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <section class="right-main-block">
+        <h1 class="head">GAME OF THRONES</h1>
+        <form action="" class="login-form">
+          <label for="email" class="form__label">Enter your email</label>
+          <input type="email" class="form__input" name="email" id="email" placeholder="arya@westeros.com">
+
+          <label for="pass" class="form__label">Choose secure password</label>
+          <p class="form__hint">Must be at least 8 characters</p>
+          <input type="password" class="form__input" name="pass" id="pass" placeholder="password">
+
+          <div class="form__checkbox-block">
+            <input type="checkbox" class="form__checkbox" name="remember-me" id="remember-me">
+            <label for="remember-me" class="form__label checkbox-label">Remember me</label>
+          </div>
+
+          <input type="button" class="form__button" id="login-form-button" value="Sign Up">
+        </form>
+
+        <form action="" class="info-form hidden">
+          <p class="info-message">
+            You've successfully joined the game.<br>
+            Tell us more about yourself.
+          </p>
+
+          <label for="username" class="form__label">Who are you?</label>
+          <p class="form__hint">Alpha-numeric user name</p>
+          <input type="text" class="form__input" name="username" id="username" placeholder="arya">
+
+          <label for="great-house" class="form__label">Your Great House</label>
+          <select name="great-house" id="great-house" class="form__input form__select">
+            <option value="" class="form__option"></option>
+            <option value="Stark" class="form__option">Stark of Winterfell</option>
+            <option value="Arryn" class="form__option">Arryn of the Eyrie</option>
+            <option value="Baratheon" class="form__option">Baratheon of Storm's End</option>
+            <option value="Greyjoy" class="form__option">Greyjoy of Pyke</option>
+            <option value="Lannister" class="form__option">Lannister of Casterly Rock</option>
+            <option value="Martell" class="form__option">Martell of Sunspear</option>
+            <option value="Targaryen" class="form__option">Targaryen of King's Landing</option>
+            <option value="Tully" class="form__option">Tully of Riverrun</option>
+            <option value="Tyrell" class="form__option">Tyrell of Highgarden</option>
+          </select>
+
+          <label for="preferences" class="form__label">Your preferences, hobbies, wishes, etc.</label>
+          <textarea class="form__input preferences" name="preferences" id="preferences"
+                    placeholder="I have a long TOKILL list..."></textarea>
+
+          <input type="button" class="form__button" id="info-form-button" value="Save">
+        </form>
+      </section>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/validate.js"></script>
+  </body>
+</html>
