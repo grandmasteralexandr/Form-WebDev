@@ -42,11 +42,14 @@ session_start();
           <?php if (!isset($_SESSION["infoForm"])): ?>
             <form action="app/handler.php" method="post" class="login-form">
               <label for="email" class="form__label">Enter your email</label>
+                <?php echo isset($_SESSION["error"]["email"]) ? ("<p class='error-msg'>" . $_SESSION['error']['email'] . "</p>") : "" ?>
               <input type="email" class="form__input" name="email" id="email" placeholder="arya@westeros.com">
 
               <label for="pass" class="form__label">Choose secure password</label>
               <p class="form__hint">Must be at least 8 characters</p>
+                <?php echo isset($_SESSION["error"]["pass"]) ? ("<p class='error-msg'>" . $_SESSION['error']['pass'] . "</p>") : "" ?>
               <input type="password" class="form__input" name="pass" id="pass" placeholder="password">
+
 
               <div class="form__checkbox-block">
                 <input type="checkbox" class="form__checkbox" name="remember-me" id="remember-me">
@@ -99,4 +102,4 @@ session_start();
   </body>
 </html>
 
-<?php ?>
+<?php unset($_SESSION["error"]) ?>

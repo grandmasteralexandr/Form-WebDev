@@ -179,3 +179,10 @@ body {
 .input-error {
   background-color: #6d1313 !important;
 }
+
+.error-msg {
+  color: red;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+}
