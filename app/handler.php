@@ -35,7 +35,7 @@ function validateInfo()
         $_SESSION["error"]["username"] = "Invalid username";
     }
 
-    if (!isset($_POST["great-house"]) || !in_array(GREAT_HOUSES_LIST[$_POST["great-house"]], GREAT_HOUSES_LIST)) {
+    if (!isset($_POST["great-house"]) || !array_key_exists($_POST["great-house"], GREAT_HOUSES_LIST)) {
         $_SESSION["error"]["housesList"] = "Select your house";
     }
 
