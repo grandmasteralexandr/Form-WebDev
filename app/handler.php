@@ -1,13 +1,23 @@
 <?php
 require_once "config.php";
+require_once "DataBase.php";
+
+use shpp\wd\aokunev\DataBase;
+
 session_start();
 
 if (isset($_POST["loginForm"]) && validateLogin()) {
+    $db = new DataBase();
+    $_SESSION["user"] = $_POST["email"];
     $_SESSION["infoForm"] = true;
 }
 
 if (isset($_POST["infoForm"]) && validateInfo()) {
-    unset($_SESSION["infoForm"]);
+    $db = new DataBase();
+    unset(
+        $_SESSION["infoForm"],
+        $_SESSION["user"]
+    );
 }
 
 header("location: ../index.php");

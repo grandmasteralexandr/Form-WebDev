@@ -11,3 +11,4 @@ const GREAT_HOUSES_LIST = [
     "Tyrell" => "Tyrell of Highgarden",
 ];
 const USERNAME_PATTERN = "/[-_A-Za-z0-9]{3,}/";
+const DB_FILE = "dataBase.json";
