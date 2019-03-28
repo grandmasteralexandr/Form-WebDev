@@ -8,12 +8,30 @@ session_start();
 
 if (isset($_POST["loginForm"]) && validateLogin()) {
     $db = new DataBase();
-    $_SESSION["user"] = $_POST["email"];
-    $_SESSION["infoForm"] = true;
+    $users = $db->getUsers();
+
+    if (array_key_exists($_POST["email"], $users)) {
+        $_SESSION["error"]["email"] = "This email already registered";
+    }
+
+    if (!isset($_SESSION["error"])) {
+        $users[$_POST["email"]] = ["pass" => $_POST["pass"]];
+        $db->save(json_encode($users));
+        $_SESSION["user"] = $_POST["email"];
+        $_SESSION["infoForm"] = true;
+    }
+
 }
 
 if (isset($_POST["infoForm"]) && validateInfo()) {
     $db = new DataBase();
+    $users = $db->getUsers();
+    $users[$_SESSION["user"]] += [
+        "username" => $_POST["username"],
+        "great-house" => $_POST["great-house"],
+        "preferences" => $_POST["preferences"],
+    ];
+    $db->save(json_encode($users));
     unset(
         $_SESSION["infoForm"],
         $_SESSION["user"]

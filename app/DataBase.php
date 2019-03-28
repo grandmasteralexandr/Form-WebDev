@@ -11,10 +11,10 @@ class DataBase
     public function __construct()
     {
         if (!file_exists(DB_FILE)) {
-            $this->createResult();
+            $this->createFile();
         }
 
-        $this->users = json_decode(file_get_contents(DB_FILE));
+        $this->users = json_decode(file_get_contents(DB_FILE), true);
     }
 
     /**
@@ -25,10 +25,20 @@ class DataBase
         return $this->users;
     }
 
-    private function createResult()
+    public function save($json)
     {
-        file_put_contents(DB_FILE, json_encode([]));
+        file_put_contents(DB_FILE, $json);
+        $this->checkPermission();
+    }
 
+    private function createFile()
+    {
+        file_put_contents(DB_FILE, "");
+        $this->checkPermission();
+    }
+
+    private function checkPermission()
+    {
         if (!(is_readable(DB_FILE) && is_writable(DB_FILE))) {
             header("location: ../500.html");
             exit();
