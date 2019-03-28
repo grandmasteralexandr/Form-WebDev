@@ -10,3 +10,4 @@ const GREAT_HOUSES_LIST = [
     "Tully" => "Tully of Riverrun",
     "Tyrell" => "Tyrell of Highgarden",
 ];
+const USERNAME_PATTERN = "/[-_A-Za-z0-9]{3,}/";

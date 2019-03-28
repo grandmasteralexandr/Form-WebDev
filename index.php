@@ -59,9 +59,11 @@ session_start();
 
               <label for="username" class="form__label">Who are you?</label>
               <p class="form__hint">Alpha-numeric user name</p>
+                <?php echo isset($_SESSION["error"]["username"]) ? ("<p class='error-msg'>" . $_SESSION['error']['username'] . "</p>") : "" ?>
               <input type="text" class="form__input" name="username" id="username" placeholder="arya">
 
               <label for="great-house" class="form__label">Your Great House</label>
+                <?php echo isset($_SESSION["error"]["housesList"]) ? ("<p class='error-msg'>" . $_SESSION['error']['housesList'] . "</p>") : "" ?>
               <select name="great-house" id="great-house" class="form__input form__select">
                 <option value="" class="form__option"></option>
                   <?php foreach (GREAT_HOUSES_LIST as $key => $value): ?>
@@ -70,6 +72,7 @@ session_start();
               </select>
 
               <label for="preferences" class="form__label">Your preferences, hobbies, wishes, etc.</label>
+                <?php echo isset($_SESSION["error"]["preferences"]) ? ("<p class='error-msg'>" . $_SESSION['error']['preferences'] . "</p>") : "" ?>
               <textarea class="form__input preferences" name="preferences" id="preferences"
                         placeholder="I have a long TOKILL list..."></textarea>
 
