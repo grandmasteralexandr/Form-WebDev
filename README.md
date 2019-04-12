@@ -1,3 +1,6 @@
+Script itself creates a database file, but if there are problems with the permission
+or you see internal error page (500.html), please create a file dataBase.json in app directory
+
 # PS1: Form task.
 
 ### Colors:
