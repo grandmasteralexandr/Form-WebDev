@@ -90,7 +90,7 @@ session_start();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.js"></script>
     <script src="js/slider.js"></script>
-    <script src="js/jquery.js"></script>
+    <script src="js/jqueryScript.js"></script>
     <script src="js/validate.js"></script>
   </body>
 </html>
