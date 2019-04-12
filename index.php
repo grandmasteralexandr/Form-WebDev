@@ -30,7 +30,7 @@ session_start();
         <h1 class="head">GAME OF THRONES</h1>
 
           <?php if (!isset($_SESSION["infoForm"])): ?>
-            <form action="app/handler.php" method="post" class="login-form">
+            <form action="app/handler.php" method="post" class="login-form" id="login-form">
               <label for="email" class="form__label">Enter your email</label>
                 <?php echo isset($_SESSION["error"]["email"]) ? ("<p class='error-msg'>" . $_SESSION['error']['email'] . "</p>") : "" ?>
               <input type="email" class="form__input" name="email" id="email" placeholder="arya@westeros.com">
@@ -51,7 +51,7 @@ session_start();
             </form>
 
           <?php else: ?>
-            <form action="app/handler.php" method="post" class="info-form">
+            <form action="app/handler.php" method="post" class="info-form" id="info-form">
               <p class="info-message">
                 You've successfully joined the game.<br>
                 Tell us more about yourself.

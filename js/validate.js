@@ -6,22 +6,25 @@ const pass = document.getElementById("pass");
 const username = document.getElementById("username");
 const greatHouse = document.getElementById("great-house");
 const preferences = document.getElementById("preferences");
-const loginButton = document.getElementById("login-form-button");
-const infoButton = document.getElementById("info-form-button");
 
 /* Event listeners */
-email.addEventListener("blur", () => changeFocusState("email"));
-email.addEventListener("input", () => checkFocusState("email"));
-pass.addEventListener("blur", () => changeFocusState("pass"));
-pass.addEventListener("input", () => checkFocusState("pass"));
-username.addEventListener("blur", () => changeFocusState("username"));
-username.addEventListener("input", () => checkFocusState("username"));
-greatHouse.addEventListener("blur", () => changeFocusState("greatHouse"));
-greatHouse.addEventListener("input", () => checkFocusState("greatHouse"));
-preferences.addEventListener("blur", () => changeFocusState("preferences"));
-preferences.addEventListener("input", () => checkFocusState("preferences"));
-loginButton.addEventListener("click", login);
-infoButton.addEventListener("click", saveInfo);
+if (loginForm) {
+    email.addEventListener("blur", () => changeFocusState("email"));
+    email.addEventListener("input", () => checkFocusState("email"));
+    pass.addEventListener("blur", () => changeFocusState("pass"));
+    pass.addEventListener("input", () => checkFocusState("pass"));
+    loginForm.addEventListener("submit", login);
+}
+
+if (infoForm) {
+    username.addEventListener("blur", () => changeFocusState("username"));
+    username.addEventListener("input", () => checkFocusState("username"));
+    greatHouse.addEventListener("blur", () => changeFocusState("greatHouse"));
+    greatHouse.addEventListener("input", () => checkFocusState("greatHouse"));
+    preferences.addEventListener("blur", () => changeFocusState("preferences"));
+    preferences.addEventListener("input", () => checkFocusState("preferences"));
+    infoForm.addEventListener("submit", saveInfo);
+}
 
 const GREAT_HOUSES_LIST = [
     "Targaryen",
@@ -147,9 +150,8 @@ function checkSelect(element, optionsList) {
  * hide login form and show info form if fields are valid
  */
 function login() {
-    if (checkText(email, EMAIL_PATTERN) && checkText(pass, PASS_PATTERN)) {
-        loginForm.classList.add("hidden");
-        infoForm.classList.remove("hidden");
+    if (!checkText(email, EMAIL_PATTERN) || !checkText(pass, PASS_PATTERN)) {
+        event.preventDefault();
     }
 }
 
@@ -157,7 +159,11 @@ function login() {
  * Check info fields
  */
 function saveInfo() {
-    checkText(username, USERNAME_PATTERN);
-    checkSelect(greatHouse, GREAT_HOUSES_LIST);
-    checkText(preferences, PREFERENCES_PATTERN);
+    if (
+        !checkText(username, USERNAME_PATTERN) ||
+        !checkSelect(greatHouse, GREAT_HOUSES_LIST) ||
+        !checkText(preferences, PREFERENCES_PATTERN)
+    ) {
+        event.preventDefault();
+    }
 }
