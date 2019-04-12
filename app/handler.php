@@ -40,6 +40,11 @@ if (isset($_POST["infoForm"]) && validateInfo()) {
 
 header("location: ../index.php");
 
+/**
+ * Validate login form
+ *
+ * @return bool
+ */
 function validateLogin()
 {
     if (!isset($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -57,6 +62,11 @@ function validateLogin()
     return true;
 }
 
+/**
+ * Validate login form
+ *
+ * @return bool
+ */
 function validateInfo()
 {
     if (!isset($_POST["username"]) || !preg_match(USERNAME_PATTERN, $_POST["username"])) {
