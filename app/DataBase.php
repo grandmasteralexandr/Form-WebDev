@@ -20,7 +20,7 @@ class DataBase
     public function __construct()
     {
         if (!file_exists(DB_FILE)) {
-            $this->createFile();
+            $this->save("");
         }
 
         $this->users = json_decode(file_get_contents(DB_FILE), true);
@@ -40,15 +40,6 @@ class DataBase
     public function save($json)
     {
         file_put_contents(DB_FILE, $json);
-        $this->checkPermission();
-    }
-
-    /**
-     * Create db file
-     */
-    private function createFile()
-    {
-        file_put_contents(DB_FILE, "");
         $this->checkPermission();
     }
 

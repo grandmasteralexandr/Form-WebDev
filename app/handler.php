@@ -28,7 +28,7 @@ if (isset($_POST["infoForm"]) && validateInfo()) {
     $users = $db->getUsers();
     $users[$_SESSION["user"]] += [
         "username" => $_POST["username"],
-        "great-house" => $_POST["great-house"],
+        "great-house" => $_POST["greatHouse"],
         "preferences" => $_POST["preferences"],
     ];
     $db->save(json_encode($users));
@@ -36,6 +36,8 @@ if (isset($_POST["infoForm"]) && validateInfo()) {
         $_SESSION["infoForm"],
         $_SESSION["user"]
     );
+    echo 'ok';
+    exit();
 }
 
 header("location: ../index.php");
@@ -73,7 +75,7 @@ function validateInfo()
         $_SESSION["error"]["username"] = "Invalid username";
     }
 
-    if (!isset($_POST["great-house"]) || !array_key_exists($_POST["great-house"], GREAT_HOUSES_LIST)) {
+    if (!isset($_POST["greatHouse"]) || !array_key_exists($_POST["greatHouse"], GREAT_HOUSES_LIST)) {
         $_SESSION["error"]["housesList"] = "Select your house";
     }
 
@@ -82,7 +84,9 @@ function validateInfo()
     }
 
     if (isset($_SESSION["error"])) {
-        return false;
+        echo json_encode($_SESSION["error"]);
+        unset($_SESSION["error"]);
+        exit();
     }
 
     return true;

@@ -159,11 +159,58 @@ function login() {
  * Check info fields
  */
 function saveInfo() {
-    if (
-        !checkText(username, USERNAME_PATTERN) ||
-        !checkSelect(greatHouse, GREAT_HOUSES_LIST) ||
-        !checkText(preferences, PREFERENCES_PATTERN)
-    ) {
-        event.preventDefault();
-    }
+    event.preventDefault();
+    $('.error-msg').remove();
+    checkText(username, USERNAME_PATTERN);
+    checkSelect(greatHouse, GREAT_HOUSES_LIST);
+    checkText(preferences, PREFERENCES_PATTERN);
+
+    $.post(
+        'app/handler.php',
+        {
+            infoForm: 'true',
+            username: username.value,
+            greatHouse: greatHouse.value,
+            preferences: preferences.value,
+
+        },
+        (response) => {
+            if (response === 'ok') {
+                window.location.href = 'index.php';
+                return;
+            }
+
+            try {
+                response = JSON.parse(response);
+            } catch (e) {
+                window.location.href = '500.html';
+                return;
+            }
+
+            if (response.username) {
+                username.before(createErrorElement(response.username));
+            }
+
+            if (response.housesList) {
+                greatHouse.before(createErrorElement(response.housesList));
+            }
+
+            if (response.preferences) {
+                preferences.before(createErrorElement(response.preferences));
+            }
+        }
+    );
+}
+
+/**
+ * Create error element with specified message
+ *
+ * @param errorMessage Error message
+ * @returns {HTMLElement} Error element
+ */
+function createErrorElement(errorMessage) {
+    const error = document.createElement('p');
+    error.classList.add('error-msg');
+    error.innerText = errorMessage;
+    return error;
 }
